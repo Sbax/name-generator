@@ -46,6 +46,7 @@ const getNames = ({
   const names = (() => {
     if (!includeFemales && !includeMales) return [];
     if (!includeFemales) return [...maleNames];
+    if (!includeMales) return [...femaleNames];
     return [...maleNames, ...femaleNames];
   })();
 
