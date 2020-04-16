@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
+import Container from "./components/Container";
+import GlobalStyle from './GlobalStyle';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GlobalStyle />
+    <Container>
+      <App />
+    </Container>
   </React.StrictMode>,
   document.getElementById('root')
 );
