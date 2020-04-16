@@ -8,115 +8,144 @@ import { Title } from "../components/Title";
 import { shuffle } from "../utils";
 
 const Container = styled.article`
-    > * + * {
-        margin-top: .5rem;
-    }
+  > * + * {
+    margin-top: 0.5rem;
+  }
 
-    display: inline-flex;
-    flex-direction: column;
-    align-content: space-between;
+  display: inline-flex;
+  flex-direction: column;
+  align-content: space-between;
 `;
 
 const Header = styled.div`
-    min-height: 7rem;
+  min-height: 7rem;
 `;
 
 const Filters = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    > * + * {
-        margin-top: .5rem;
-    }
+  > * + * {
+    margin-top: 0.5rem;
+  }
 `;
 
 const min = 1;
 const max = 10;
 
-const getNames = ({ femaleNames, maleNames, lastNames, includeFemales, includeMales, includeLastNames }) => {
-    const names = (() => {
-        if (!includeFemales && !includeMales) return [];
-        if (!includeFemales) return [...maleNames];
-        return [...maleNames, ...femaleNames];
-    })();
+const getNames = ({
+  femaleNames,
+  maleNames,
+  lastNames,
+  includeFemales,
+  includeMales,
+  includeLastNames,
+}) => {
+  const names = (() => {
+    if (!includeFemales && !includeMales) return [];
+    if (!includeFemales) return [...maleNames];
+    return [...maleNames, ...femaleNames];
+  })();
 
-    const shuffledNames = shuffle(names);
+  const shuffledNames = shuffle(names);
 
-    if (!includeLastNames) return shuffledNames;
+  if (!includeLastNames) return shuffledNames;
 
-    const shuffledLastNames = shuffle(lastNames);
-    return Array.from({ length: max }).map((_, index) => {
-        const name = shuffledNames[index];
-        const lastName = shuffledLastNames[index];
+  const shuffledLastNames = shuffle(lastNames);
+  return Array.from({ length: max }).map((_, index) => {
+    const name = shuffledNames[index];
+    const lastName = shuffledLastNames[index];
 
-        if (name) return `${name} ${lastName}`;
-        return lastName;
-    });
+    if (name) return `${name} ${lastName}`;
+    return lastName;
+  });
 };
 
 const NamesGenerator = ({ femaleNames, maleNames, lastNames }) => {
-    const [number, setNumber] = useState(5);
-    const [includeMales, setMales] = useState(true);
-    const [includeFemales, setFemales] = useState(true);
-    const [includeLastNames, setLastNames] = useState(true);
+  const [number, setNumber] = useState(5);
+  const [includeMales, setMales] = useState(true);
+  const [includeFemales, setFemales] = useState(true);
+  const [includeLastNames, setLastNames] = useState(true);
 
-    const [shuffled, setShuffled] = useState(getNames({
+  const [shuffled, setShuffled] = useState(
+    getNames({
+      femaleNames: shuffle(femaleNames),
+      maleNames: shuffle(maleNames),
+      lastNames: shuffle(lastNames),
+      includeFemales,
+      includeMales,
+      includeLastNames,
+    })
+  );
+
+  const reshuffle = () =>
+    setShuffled(
+      getNames({
         femaleNames: shuffle(femaleNames),
         maleNames: shuffle(maleNames),
         lastNames: shuffle(lastNames),
         includeFemales,
         includeMales,
-        includeLastNames
-    }));
-
-    const reshuffle = () => setShuffled(getNames({
-        femaleNames: shuffle(femaleNames),
-        maleNames: shuffle(maleNames),
-        lastNames: shuffle(lastNames),
-        includeFemales,
-        includeMales,
-        includeLastNames
-    }));
-
-    useEffect(() => {
-        setShuffled(getNames({
-            femaleNames: shuffle(femaleNames),
-            maleNames: shuffle(maleNames),
-            lastNames: shuffle(lastNames),
-            includeFemales,
-            includeMales,
-            includeLastNames
-        }));
-    }, [femaleNames, maleNames, lastNames, includeMales, includeFemales, includeLastNames])
-
-
-    return (
-        <Container>
-            <Header>
-                <Title>Nomi</Title>
-                <Filters>
-                    <Counter min={min} max={max} number={number} onChange={setNumber} />
-                    <div>
-                        <Checkbox checked={includeMales} onChange={(e) => setMales(e.target.checked)}>
-                            Homini
-                    </Checkbox>
-                        <Checkbox checked={includeFemales} onChange={(e) => setFemales(e.target.checked)}>
-                            Dame
-                    </Checkbox>
-                        <Checkbox checked={includeLastNames} onChange={(e) => setLastNames(e.target.checked)}>
-                            Casata
-                    </Checkbox>
-                    </div>
-                </Filters>
-            </Header>
-
-            <List array={shuffled.slice(0, number)}>
-                <Button onClick={reshuffle}>Ripeti</Button>
-            </List>
-        </Container>
+        includeLastNames,
+      })
     );
+
+  useEffect(() => {
+    setShuffled(
+      getNames({
+        femaleNames: shuffle(femaleNames),
+        maleNames: shuffle(maleNames),
+        lastNames: shuffle(lastNames),
+        includeFemales,
+        includeMales,
+        includeLastNames,
+      })
+    );
+  }, [
+    femaleNames,
+    maleNames,
+    lastNames,
+    includeMales,
+    includeFemales,
+    includeLastNames,
+  ]);
+
+  return (
+    <Container>
+      <Header>
+        <Title>Nomi</Title>
+        <Filters>
+          <Counter min={min} max={max} number={number} onChange={setNumber} />
+          <div>
+            <Checkbox
+              checked={includeMales}
+              onChange={(e) => setMales(e.target.checked)}
+            >
+              Homini
+            </Checkbox>
+            <Checkbox
+              checked={includeFemales}
+              onChange={(e) => setFemales(e.target.checked)}
+            >
+              Dame
+            </Checkbox>
+            <Checkbox
+              checked={includeLastNames}
+              onChange={(e) => setLastNames(e.target.checked)}
+            >
+              Casata
+            </Checkbox>
+          </div>
+        </Filters>
+      </Header>
+
+      <List array={shuffled.slice(0, number)}>
+        <Button onClick={reshuffle}>Ripeti</Button>
+      </List>
+    </Container>
+  );
 };
 
 export default NamesGenerator;
