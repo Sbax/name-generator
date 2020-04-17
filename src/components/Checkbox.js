@@ -49,12 +49,16 @@ const Label = styled.label`
       display: block;
     }
   }
+
+  input:disabled ~ span {
+    opacity: 0.5;
+  }
 `;
 
-const Checkbox = ({ checked, onChange, children }) => {
+const Checkbox = ({ children, ...params }) => {
   return (
     <Label>
-      <input type="checkbox" checked={checked} onChange={onChange} />
+      <input type="checkbox" {...params} />
       <span />
       {children}
     </Label>

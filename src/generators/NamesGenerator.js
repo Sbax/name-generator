@@ -96,18 +96,21 @@ const NamesGenerator = ({ femaleNames, maleNames, lastNames }) => {
           <Counter min={min} max={max} number={number} onChange={setNumber} />
           <div>
             <Checkbox
+              disabled={!includeFemales && !includeLastNames}
               checked={includeMales}
               onChange={(e) => setMales(e.target.checked)}
             >
               Homini
             </Checkbox>
             <Checkbox
+              disabled={!includeMales && !includeLastNames}
               checked={includeFemales}
               onChange={(e) => setFemales(e.target.checked)}
             >
               Dame
             </Checkbox>
             <Checkbox
+              disabled={!includeFemales && !includeMales}
               checked={includeLastNames}
               onChange={(e) => setLastNames(e.target.checked)}
             >
