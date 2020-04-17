@@ -29,6 +29,14 @@ const GlobalStyle = createGlobalStyle`
   b {
     font-weight: bold;
   }
+
+  input,
+  textarea,
+  button,
+  select,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
 `;
 
 export default GlobalStyle;
