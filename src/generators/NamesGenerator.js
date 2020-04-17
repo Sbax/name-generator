@@ -1,36 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { Button } from "../components/Button";
+import { Card, Filters, Header } from "../components/Card";
 import Checkbox from "../components/Checkbox";
 import Counter from "../components/Counter";
 import List from "../components/List";
 import { Title } from "../components/Title";
 import { shuffle } from "../utils";
-
-const Container = styled.article`
-  > * + * {
-    margin-top: 0.5rem;
-  }
-
-  display: inline-flex;
-  flex-direction: column;
-  align-content: space-between;
-`;
-
-const Header = styled.div`
-  min-height: 7rem;
-`;
-
-const Filters = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  > * + * {
-    margin-top: 0.5rem;
-  }
-`;
 
 const min = 1;
 const max = 10;
@@ -114,7 +89,7 @@ const NamesGenerator = ({ femaleNames, maleNames, lastNames }) => {
   ]);
 
   return (
-    <Container>
+    <Card>
       <Header>
         <Title>Nomi</Title>
         <Filters>
@@ -145,7 +120,7 @@ const NamesGenerator = ({ femaleNames, maleNames, lastNames }) => {
       <List array={shuffled.slice(0, number)}>
         <Button onClick={reshuffle}>Ripeti</Button>
       </List>
-    </Container>
+    </Card>
   );
 };
 

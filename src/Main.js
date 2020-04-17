@@ -1,8 +1,7 @@
 import React from "react";
-import NamesGenerator from "./generators/NamesGenerator";
-import PlacesGenerator from "./generators/PlacesGenerator";
 import styled from "styled-components";
-import MenuGenerator from "./generators/MenuGenerator";
+import NamesGenerator from "./generators/NamesGenerator";
+import ShuffleGenerator from "./generators/ShuffleGenerator";
 import Thanks from "./Thanks";
 
 const Grid = styled.section`
@@ -52,8 +51,8 @@ const Main = ({ femaleNames, maleNames, lastNames, places, dishes }) => {
           maleNames={maleNames}
           lastNames={lastNames}
         />
-        <PlacesGenerator places={places} />
-        <MenuGenerator dishes={dishes} />
+        <ShuffleGenerator array={places} title={"Luoghi"} start={3} />
+        <ShuffleGenerator array={dishes} title={"Menu"} start={5} />
       </Grid>
 
       <Thanks />
