@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "../components/Button";
-import { Card, Filters, Header } from "../components/Card";
+import { Card, Title, Filters, Header } from "../components/Card";
 import Counter from "../components/Counter";
 import List from "../components/List";
-import { Title } from "../components/Title";
 import { shuffle } from "../utils";
 
 const ShuffleGenerator = ({ array, title, min = 1, max = 10, start = 5 }) => {

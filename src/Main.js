@@ -3,6 +3,7 @@ import styled from "styled-components";
 import NamesGenerator from "./generators/NamesGenerator";
 import ShuffleGenerator from "./generators/ShuffleGenerator";
 import Thanks from "./Thanks";
+import Header from "./components/Header";
 
 const Grid = styled.section`
   display: flex;
@@ -45,6 +46,7 @@ const Container = styled.main`
 const Main = ({ femaleNames, maleNames, lastNames, places, dishes }) => {
   return (
     <Container>
+      <Header />
       <Grid>
         <NamesGenerator
           femaleNames={femaleNames}

@@ -13,6 +13,11 @@ export const Header = styled.div`
   min-height: 7rem;
 `;
 
+export const Title = styled.h1`
+  font-size: 2rem;
+  font-weight: bold;
+`;
+
 export const Filters = styled.div`
   display: flex;
   flex-direction: column;

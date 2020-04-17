@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "../components/Button";
-import { Card, Filters, Header } from "../components/Card";
+import { Card, Title, Filters, Header } from "../components/Card";
 import Checkbox from "../components/Checkbox";
 import Counter from "../components/Counter";
 import List from "../components/List";
-import { Title } from "../components/Title";
 import { shuffle } from "../utils";
 
 const min = 1;
