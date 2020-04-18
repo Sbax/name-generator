@@ -45,7 +45,8 @@ const Thanks = () => {
         <a href="https://www.kickstarter.com/projects/acherongames/brancalonia-the-spaghetti-fantasy-rpg">
           Brancalonia
         </a>{" "}
-        e chiunque altro.
+        e chiunque altro. Il codice sorgente è disponibile su{" "}
+        <a href="https://github.com/Sbax/name-generator">github</a>.
       </p>
 
       <p>

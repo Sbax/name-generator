@@ -32,8 +32,6 @@ export default () => {
             items: food[index],
           }));
 
-          console.log(dishes);
-
           setData((data) => ({ ...data, dishes }));
         }),
 
