@@ -35,7 +35,7 @@ export default () => {
           setData((data) => ({ ...data, dishes }));
         }),
 
-        getSheet("regions!A:D", (response) => {
+        getSheet("regions!A:E", (response) => {
           const [regionNames, ...citiesRotated] = response.result.values;
           const cities = rotateMatrix(citiesRotated);
 
