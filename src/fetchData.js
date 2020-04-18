@@ -10,19 +10,31 @@ export default () => {
       await Promise.all([
         getSheet("random!A2:B", (response) => {
           const random = response.result.values.reduce(
-            ({ places, dishes }, [place, dish]) => {
+            ({ places }, [place]) => {
               if (place) places.push(place);
-              if (dish) dishes.push(dish);
 
-              return { places, dishes };
+              return { places };
             },
             {
               places: [],
-              dishes: [],
             }
           );
 
           setData((data) => ({ ...data, ...random }));
+        }),
+
+        getSheet("food!A:C", (response) => {
+          const [foodTypes, ...foodRotated] = response.result.values;
+          const food = rotateMatrix(foodRotated);
+
+          const dishes = foodTypes.map((name, index) => ({
+            name,
+            items: food[index],
+          }));
+
+          console.log(dishes);
+
+          setData((data) => ({ ...data, dishes }));
         }),
 
         getSheet("regions!A:D", (response) => {

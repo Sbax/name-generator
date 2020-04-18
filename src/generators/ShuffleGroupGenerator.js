@@ -15,7 +15,7 @@ const genericGetItems = (array, selected) => {
 };
 
 const ShuffleGroupGenerator = ({
-  data,
+  array,
   title,
   min = 1,
   max = 10,
@@ -29,16 +29,16 @@ const ShuffleGroupGenerator = ({
   };
 
   const [selected, setSelected] = useState(
-    data.map(({ name }) => ({ name, include: true }))
+    array.map(({ name }) => ({ name, include: true }))
   );
 
-  const [shuffled, setShuffled] = useState(getItems(data, selected));
+  const [shuffled, setShuffled] = useState(getItems(array, selected));
 
   useEffect(() => {
-    setShuffled(getItems(data, selected));
-  }, [getItems, data, selected]);
+    setShuffled(getItems(array, selected));
+  }, [getItems, array, selected]);
 
-  const reshuffle = () => setShuffled(getItems(data, selected));
+  const reshuffle = () => setShuffled(getItems(array, selected));
 
   return (
     <Card>

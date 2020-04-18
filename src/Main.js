@@ -49,10 +49,10 @@ const Main = ({ names, places, dishes, regions }) => {
     <Container>
       <Header />
       <Grid>
-        <NamesGenerator data={names} title={"Nomi"} />
+        <NamesGenerator array={names} title={"Nomi"} />
         <ShuffleGenerator array={places} title={"Luoghi"} start={3} />
-        <ShuffleGenerator array={dishes} title={"Menu"} />
-        <ShuffleGroupGenerator data={regions} title={"Città"} />
+        <ShuffleGroupGenerator array={dishes} title={"Menu"} />
+        <ShuffleGroupGenerator array={regions} title={"Città"} />
       </Grid>
 
       <Thanks />
