@@ -47,6 +47,10 @@ const Thanks = () => {
         </a>{" "}
         e chiunque altro.
       </p>
+
+      <p>
+        <b>Questo sito raccoglie dati anonimi di navigazione</b>.
+      </p>
     </Container>
   );
 };
