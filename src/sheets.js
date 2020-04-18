@@ -20,18 +20,8 @@ const saveToSession = (key, data) => {
   sessionStorage.setItem(key, JSON.stringify(data));
 };
 
-const saveToStorage = (key, data) => {
-  localStorage.setItem(key, JSON.stringify(data));
-};
-
 const getFromSession = (key) => {
   const saved = sessionStorage.getItem(key);
-  if (!saved) return;
-  return JSON.parse(saved);
-};
-
-const getFromStorage = (key) => {
-  const saved = localStorage.getItem(key);
   if (!saved) return;
   return JSON.parse(saved);
 };
@@ -48,16 +38,9 @@ export const getSheet = async (range, callback) => {
         spreadsheetId: sheet,
         range,
       })
-      .then(
-        (response) => {
-          saveToSession(`${sheet}:${range}`, response);
-          saveToStorage(`${sheet}:${range}`, response);
-          callback(response);
-        },
-        (error) => {
-          const saved = getFromStorage(`${sheet}:${range}`);
-          callback(saved);
-        }
-      );
+      .then((response) => {
+        saveToSession(`${sheet}:${range}`, response);
+        callback(response);
+      });
   });
 };
