@@ -12,6 +12,9 @@ const App = () => {
   const data = fetchData();
   if (!data) return <Loader />;
 
+  const { names, places, dishes, regions } = data;
+  if (!names || !places || !dishes || !regions) return <Loader />;
+
   return <Main {...data} />;
 };
 
