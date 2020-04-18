@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import Header from "./components/Header";
 import NamesGenerator from "./generators/NamesGenerator";
 import ShuffleGenerator from "./generators/ShuffleGenerator";
+import ShuffleGroupGenerator from "./generators/ShuffleGroupGenerator";
 import Thanks from "./Thanks";
-import Header from "./components/Header";
 
 const Grid = styled.section`
   display: flex;
@@ -43,18 +44,15 @@ const Container = styled.main`
   justify-content: space-between;
 `;
 
-const Main = ({ femaleNames, maleNames, lastNames, places, dishes }) => {
+const Main = ({ names, places, dishes, regions }) => {
   return (
     <Container>
       <Header />
       <Grid>
-        <NamesGenerator
-          femaleNames={femaleNames}
-          maleNames={maleNames}
-          lastNames={lastNames}
-        />
+        <NamesGenerator data={names} title={"Nomi"} />
         <ShuffleGenerator array={places} title={"Luoghi"} start={3} />
-        <ShuffleGenerator array={dishes} title={"Menu"} start={5} />
+        <ShuffleGenerator array={dishes} title={"Menu"} />
+        <ShuffleGroupGenerator data={regions} title={"Città"} />
       </Grid>
 
       <Thanks />
