@@ -1,0 +1,7 @@
+[build]
+  command = "yarn run build"
+  functions = "functions"
+  publish = "build"
+
+[dev]
+  port = "3000"

@@ -1,0 +1,22 @@
+{
+  "name": "google-sheets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "google-sheets.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "netlify",
+    "serverless",
+    "apis",
+    "js"
+  ],
+  "author": "Netlify",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "googleapis": "39",
+    "qs": "^6.7.0"
+  }
+}
