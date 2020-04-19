@@ -57,7 +57,7 @@ const getGroupedSheet = (range) =>
     .catch((error) => error);
 
 const getDishes = () => getGroupedSheet("food!A:C");
-const getRegions = () => getGroupedSheet("regions!A:D");
+const getRegions = () => getGroupedSheet("regions!A:E");
 const getNames = () => getGroupedSheet("names!A:D");
 const getRandom = () =>
   getSheet("random!A2:B")
