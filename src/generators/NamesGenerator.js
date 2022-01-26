@@ -81,7 +81,7 @@ const NamesGenerator = ({ title, array, min = 1, max = 10, start = 5 }) => {
 
   useEffect(() => {
     setShuffled(getNames(array, filters));
-  }, [getNames, array, filters]);
+  }, [array, filters]);
 
   const reshuffle = () => setShuffled(getNames(array, filters));
 
