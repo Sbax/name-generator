@@ -32,11 +32,8 @@ const Thanks = () => {
         <a href="https://en.wikipedia.org/wiki/Pentamerone">
           Cunto de li Cunti
         </a>{" "}
-        e Matteo dell'associazione{" "}
-        <a href="https://www.facebook.com/compagniadelgrifone">
-          Compagnia del Grifone
-        </a>{" "}
-        che ci ha donato moltissimi nomi romagnoli.
+        e <a href="mailto:matteo.piraccini@outlook.it">Matteo Piraccini</a> che
+        ci ha donato moltissimi nomi romagnoli.
       </p>
       <p>
         Per le ricette medievali ringrazio inoltre il sito{" "}
