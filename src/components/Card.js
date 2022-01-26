@@ -24,6 +24,11 @@ export const Filters = styled.div`
   align-items: center;
   justify-content: center;
 
+  > * {
+    justify-content: center;
+    width: 100%;
+  }
+
   > * + * {
     margin-top: 0.5rem;
   }

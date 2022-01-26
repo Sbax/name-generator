@@ -28,11 +28,15 @@ const Thanks = () => {
         <a href="https://dismastersden.blogspot.com/2020/04/spaghetti-fantasy-name-generator.html">
           generatore di nomi spaghetti fantasy
         </a>{" "}
-        e Lorenzo Ladogana per aver estratto nomi e luoghi dal{" "}
+        , Lorenzo Ladogana per aver estratto nomi e luoghi dal{" "}
         <a href="https://en.wikipedia.org/wiki/Pentamerone">
           Cunto de li Cunti
-        </a>
-        .
+        </a>{" "}
+        e Matteo dell'associazione{" "}
+        <a href="https://www.facebook.com/compagniadelgrifone">
+          Compagnia del Grifone
+        </a>{" "}
+        che ci ha donato moltissimi nomi romagnoli.
       </p>
       <p>
         Per le ricette medievali ringrazio inoltre il sito{" "}

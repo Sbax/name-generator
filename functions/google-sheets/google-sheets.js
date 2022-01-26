@@ -2,7 +2,6 @@ const sheets = require("./sheets");
 const { getDishes, getRegions, getNames, getRandom } = sheets;
 
 exports.handler = async (event) => {
-  console.log(event);
   const path = event.path.split("/").pop();
 
   if (path === "sheet-data") {

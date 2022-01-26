@@ -15,7 +15,5 @@ export default () => {
     fetchData();
   }, []);
 
-  console.log(data);
-
   return data;
 };
